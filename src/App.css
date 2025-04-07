@@ -1,0 +1,27 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.app-header {
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+main {
+  flex: 1;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.app-footer {
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #666;
+  border-top: 1px solid #e0e0e0;
+}
