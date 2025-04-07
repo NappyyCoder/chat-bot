@@ -29,21 +29,23 @@ const ChatBot = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const addMessage = (text, sender) => {
-    const newMessage = {
-      id: messages.length + 1,
-      text,
-      sender,
-      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-    };
-    setMessages([...messages, newMessage]);
-  };
-
   const handleSendMessage = (text) => {
     if (!text.trim()) return;
 
-    // Add user message
-    addMessage(text, 'user');
+    // Create user message object
+    const userMessage = {
+      id: messages.length + 1,
+      text,
+      sender: 'user',
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    };
+
+    // Update messages with the user message
+    const updatedMessages = [...messages, userMessage];
+    setMessages(updatedMessages);
+
+    // Save to localStorage immediately
+    localStorage.setItem('chatMessages', JSON.stringify(updatedMessages));
 
     // Show bot is typing
     setIsTyping(true);
@@ -58,11 +60,22 @@ const ChatBot = () => {
         userQuestion.includes(item.question.toLowerCase())
       );
 
-      if (matchedResponse) {
-        addMessage(matchedResponse.answer, 'bot');
-      } else {
-        addMessage("I'm not sure how to respond to that. Can you try asking something else?", 'bot');
-      }
+      // Create bot message
+      const botMessage = {
+        id: updatedMessages.length + 1,
+        text: matchedResponse
+          ? matchedResponse.answer
+          : "I'm not sure how to respond to that. Can you try asking something else?",
+        sender: 'bot',
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      };
+
+      // Update messages with bot response
+      const messagesWithBotResponse = [...updatedMessages, botMessage];
+      setMessages(messagesWithBotResponse);
+
+      // Save to localStorage
+      localStorage.setItem('chatMessages', JSON.stringify(messagesWithBotResponse));
     }, 1000); // 1 second delay
   };
 
