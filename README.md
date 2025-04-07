@@ -12,7 +12,7 @@ A simple chatbot built with React for Lab 20. This chatbot responds to user inpu
 
 ## Live Demo
 
-Check out the live demo: [React Chatbot](https://nappyycoder.github.io/Chat-Bot/)
+Check out the live demo: [React Chatbot](https://nappyycoder.github.io/chat-bot/)
 
 ## Getting Started
 
@@ -25,8 +25,8 @@ Check out the live demo: [React Chatbot](https://nappyycoder.github.io/Chat-Bot/
 
 1. Clone the repository
    ```
-   git clone https://github.com/NappyyCoder/Chat-Bot.git
-   cd Chat-Bot
+   git clone https://github.com/NappyyCoder/chat-bot.git
+   cd chat-bot
    ```
 
 2. Install dependencies

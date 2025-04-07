@@ -9,7 +9,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://nappyycoder.github.io/Chat-Bot/",
+  "homepage": "https://nappyycoder.github.io/chat-bot/",
   "keywords": [],
   "author": "",
   "license": "ISC",

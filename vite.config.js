@@ -6,5 +6,5 @@ export default defineConfig({
   server: {
     port: 3000,
   },
-  base: '/Chat-Bot/', // GitHub Pages repository name
+  base: '/chat-bot/', // GitHub Pages repository name
 });
